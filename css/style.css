@@ -1,0 +1,452 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #10070b;
+  color: white;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    to bottom,
+    #2b235c 0%,
+    #7d3d67 35%,
+    #e47847 68%,
+    #15080d 100%
+  );
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.sun {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  left: 18%;
+  top: 20%;
+  border-radius: 50%;
+  background: #ffb35c;
+  box-shadow: 0 0 90px #ff8a3d;
+}
+
+.moon {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  right: 20%;
+  top: 18%;
+  border-radius: 50%;
+  background: #fff1d4;
+  box-shadow: 0 0 50px #fff1d4;
+}
+
+.layer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  will-change: transform;
+}
+
+.mountains {
+  height: 360px;
+  background: #2a1830;
+  clip-path: polygon(
+    0 70%, 12% 35%, 24% 72%, 38% 28%, 52% 75%,
+    68% 32%, 82% 70%, 100% 38%, 100% 100%, 0 100%
+  );
+  opacity: 0.55;
+  z-index: 2;
+}
+
+.forest-back {
+  height: 300px;
+  background: #1d1828;
+  clip-path: polygon(
+    0 65%, 6% 30%, 12% 65%, 20% 25%, 28% 70%,
+    36% 33%, 45% 70%, 55% 24%, 64% 68%,
+    73% 31%, 82% 72%, 91% 27%, 100% 62%,
+    100% 100%, 0 100%
+  );
+  z-index: 3;
+}
+
+.forest-mid {
+  height: 230px;
+  background: #14101a;
+  clip-path: polygon(
+    0 60%, 8% 25%, 16% 64%, 26% 22%, 35% 66%,
+    44% 26%, 53% 68%, 64% 20%, 74% 66%,
+    84% 24%, 94% 62%, 100% 38%,
+    100% 100%, 0 100%
+  );
+  z-index: 5;
+}
+
+.forest-front {
+  height: 145px;
+  background: #080407;
+  clip-path: polygon(
+    0 48%, 7% 18%, 15% 54%, 24% 15%, 33% 58%,
+    43% 22%, 52% 60%, 63% 16%, 73% 55%,
+    84% 20%, 93% 58%, 100% 30%,
+    100% 100%, 0 100%
+  );
+  z-index: 8;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 780px;
+  text-align: center;
+  padding: 45px 35px;
+  border-radius: 34px;
+  background: rgba(22, 7, 14, 0.48);
+  border: 1px solid rgba(255, 210, 170, 0.24);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+}
+
+.tag {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: rgba(255, 180, 100, 0.15);
+  color: #ffd6a8;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+  color: #ffe0b7;
+  text-shadow: 0 0 28px rgba(255, 130, 60, 0.65);
+  margin-bottom: 18px;
+}
+
+.hero p {
+  max-width: 620px;
+  margin: auto;
+  line-height: 1.8;
+  color: #fff1e4;
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 34px;
+  border-radius: 40px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff7a2f, #aa2417);
+  box-shadow: 0 0 28px rgba(255, 100, 45, 0.7);
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-5px) scale(1.04);
+}
+
+.fox-area {
+  position: absolute;
+  bottom: 145px;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  will-change: transform;
+}
+
+.fox {
+  font-size: 4rem;
+  filter: drop-shadow(0 0 20px rgba(255, 100, 40, 0.85));
+  animation: respirar 2.6s infinite ease-in-out;
+}
+
+.fox-right {
+  transform: scaleX(-1);
+}
+
+.destiny-line {
+  width: 140px;
+  height: 4px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, transparent, #ffd19c, transparent);
+  box-shadow: 0 0 25px #ff9d4a;
+}
+
+.destino {
+  position: relative;
+  z-index: 20;
+  padding: 120px 20px 90px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 120, 50, 0.18), transparent 35%),
+    #10070b;
+  overflow: hidden;
+}
+
+.destino::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.4));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.forest-transition {
+  position: absolute;
+  top: -120px;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: #10070b;
+  clip-path: polygon(
+    0 100%, 
+    6% 60%, 
+    12% 100%, 
+    18% 55%, 
+    26% 100%,
+    34% 60%, 
+    42% 100%, 
+    50% 55%, 
+    58% 100%,
+    66% 60%, 
+    74% 100%, 
+    82% 55%, 
+    90% 100%,
+    100% 65%,
+    100% 100%
+  );
+  z-index: 2;
+  filter: blur(1px);
+  opacity: 0.9;
+}
+
+.destino h2 {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  color: #ffd6a8;
+  margin-bottom: 45px;
+}
+
+.cards {
+  position: relative;
+  z-index: 3;
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cards::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff9d4a,
+    #ffd19c,
+    #ff9d4a,
+    transparent
+  );
+  opacity: 0;
+  box-shadow: 0 0 18px #ff9d4a;
+  transition: width 1.2s ease, opacity 0.8s ease;
+  z-index: 0;
+}
+
+.cards.line-on::before {
+  width: 80%;
+  opacity: 0.8;
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  min-height: 250px;
+  padding: 32px;
+  border-radius: 30px;
+  background: linear-gradient(145deg, #241018, #13070b);
+  border: 1px solid rgba(255, 200, 150, 0.14);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(45px);
+  transition: 0.8s ease;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card h3 {
+  color: #ffc28e;
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}
+
+.card p {
+  color: #f4d8c7;
+  line-height: 1.8;
+}
+
+.destaque {
+  background: linear-gradient(145deg, #421818, #18070c);
+  box-shadow: 0 0 45px rgba(255, 100, 45, 0.25);
+}
+
+/* Constelação */
+
+.constellation {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #ffd19c;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ff9d4a;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.s1 { left: 12%; top: 35%; }
+.s2 { left: 28%; top: 22%; }
+.s3 { left: 45%; top: 38%; }
+.s4 { left: 62%; top: 25%; }
+.s5 { left: 78%; top: 42%; }
+.s6 { left: 90%; top: 30%; }
+
+.constellation-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.constellation-lines polyline {
+  fill: none;
+  stroke: #ffb36b;
+  stroke-width: 0.25;
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  filter: drop-shadow(0 0 5px #ff9d4a);
+  opacity: 0;
+}
+
+.destino.constellation-on .star {
+  animation: nascerEstrela 0.8s ease forwards;
+}
+
+.destino.constellation-on .s1 { animation-delay: 0.1s; }
+.destino.constellation-on .s2 { animation-delay: 0.25s; }
+.destino.constellation-on .s3 { animation-delay: 0.4s; }
+.destino.constellation-on .s4 { animation-delay: 0.55s; }
+.destino.constellation-on .s5 { animation-delay: 0.7s; }
+.destino.constellation-on .s6 { animation-delay: 0.85s; }
+
+.destino.constellation-on .constellation-lines polyline {
+  animation: desenharConstelacao 1.8s ease forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes respirar {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes nascerEstrela {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+
+@keyframes desenharConstelacao {
+  from {
+    stroke-dashoffset: 260;
+    opacity: 0;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+    opacity: 0.45;
+  }
+}
+
+@media (max-width: 850px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cards::before {
+    display: none;
+  }
+
+  .fox-area {
+    bottom: 105px;
+    gap: 18px;
+  }
+
+  .destiny-line {
+    width: 75px;
+  }
+
+  .sun {
+    width: 120px;
+    height: 120px;
+    left: 10%;
+  }
+
+  .moon {
+    width: 75px;
+    height: 75px;
+    right: 12%;
+  }
+}
